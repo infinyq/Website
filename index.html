@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INFINYQ — AI-Powered Digital Human Twins</title>
+<meta name="description" content="INFINYQ is building an AI-powered Digital Human Twin platform — realistic, interactive digital representations of real people, created only from authorised photographs, voice and memories.">
+<meta property="og:title" content="INFINYQ — AI-Powered Digital Human Twins">
+<meta property="og:description" content="Realistic, interactive digital humans created from authorised photographs, voice recordings and memories.">
+<meta property="og:image" content="assets/demo-poster.jpg">
+<meta property="og:url" content="https://infinyq.co.uk/">
+<meta name="theme-color" content="#030308">
+<link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="brand" aria-label="INFINYQ home">
+      <img src="assets/logo-mark.svg" alt="" class="brand__mark">
+      <span class="brand__word">INFINYQ</span>
+    </a>
+    <nav class="nav__links" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#stages">Stages</a>
+      <a href="#demos">Demos</a>
+      <a href="#technology">Technology</a>
+      <a href="#responsible">Responsible AI</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+    <a href="#contact" class="btn btn--pill btn--sm">Register interest</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+  </div>
+  <div class="nav__mobile" hidden>
+    <a href="#how">How it works</a><a href="#stages">Stages</a><a href="#demos">Demos</a>
+    <a href="#technology">Technology</a><a href="#responsible">Responsible AI</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO: SCROLL-DRIVEN TRANSFORMATION ============ -->
+<section class="hero" id="hero" aria-label="From holographic structure to human">
+  <div class="hero__sticky">
+    <canvas class="hero__canvas" id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero__vignette"></div>
+    <div class="hero__scan"></div>
+
+    <!-- orbiting identity frames -->
+    <div class="orbit" id="orbit" aria-hidden="true">
+      <div class="orbit__card" data-i="0"><img src="assets/face1.jpg" alt=""><span>IMG_0142 · authorised</span></div>
+      <div class="orbit__card" data-i="1"><img src="assets/face2.jpg" alt=""><span>IMG_0387 · authorised</span></div>
+      <div class="orbit__card orbit__card--voice" data-i="2"><div class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span>VOICE · 04:12</span></div>
+      <div class="orbit__card is-selected" data-i="3"><img src="assets/face4.jpg" alt=""><span>IMG_0511 · selected</span></div>
+      <div class="orbit__card orbit__card--memory" data-i="4"><p>“Sunday mornings he’d sing while making chai…”</p><span>MEMORY · 1998</span></div>
+      <div class="orbit__card" data-i="5"><img src="assets/face3.jpg" alt=""><span>VID_0029 · frame 211</span></div>
+    </div>
+
+    <!-- copy phases -->
+    <div class="hero__copy">
+      <div class="phase" data-from="0" data-to="0.16">
+        <p class="eyebrow"><span class="dot"></span>Concept visualisation · Stage 1</p>
+        <h1 class="display">Every person is<br><span class="muted">more than data.</span></h1>
+        <p class="lead">Scroll to watch a digital structure become someone.</p>
+      </div>
+      <div class="phase" data-from="0.2" data-to="0.44">
+        <p class="eyebrow">01 — Gather</p>
+        <h2 class="display display--md">Photographs. Voice.<br><span class="muted">Memories.</span></h2>
+      </div>
+      <div class="phase" data-from="0.48" data-to="0.7">
+        <p class="eyebrow">02 — Reconstruct</p>
+        <h2 class="display display--md">The structure<br><span class="muted">learns a face.</span></h2>
+      </div>
+      <div class="phase phase--final" data-from="0.78" data-to="1.01">
+        <p class="eyebrow"><span class="dot"></span>INFINYQ · Digital Human Twin</p>
+        <h2 class="display">Keep the people<br><span class="grad">you love within reach.</span></h2>
+        <p class="lead">We’re building technology that turns authorised photographs, voice recordings and memories into a realistic, interactive digital human.</p>
+        <div class="cta-row">
+          <a href="#how" class="btn btn--primary">See how it works</a>
+          <a href="#contact" class="btn btn--ghost">Register interest</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- progress rail -->
+    <div class="rail" aria-hidden="true">
+      <div class="rail__track"><div class="rail__fill" id="railFill"></div></div>
+      <ol class="rail__labels">
+        <li data-at="0">Hologram</li><li data-at="0.3">Identity</li><li data-at="0.6">Reconstruction</li><li data-at="0.9">Human</li>
+      </ol>
+    </div>
+    <div class="hero__hint" id="hint"><span>Scroll</span><i></i></div>
+    <div class="hero__loader" id="loader"><span id="loaderPct">0%</span></div>
+    <p class="hero__disclaimer">Concept animation — illustrates the intended Stage 1 outcome, not a live product output.</p>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="section intro" id="intro">
+  <div class="container">
+    <p class="tag">What is a Digital Human Twin?</p>
+    <h2 class="h2 reveal">A digital human twin is a realistic, interactive representation of a real person — their <em>face</em>, their <em>voice</em>, the way they <em>speak</em>, and the <em>memories</em> that made them who they are.</h2>
+    <div class="intro__grid">
+      <article class="stat reveal"><span class="stat__k">01</span><h3>Appearance</h3><p>Facial structure, expressions and characteristic movement.</p></article>
+      <article class="stat reveal"><span class="stat__k">02</span><h3>Voice</h3><p>Accent, tone, rhythm and the small speaking patterns people recognise.</p></article>
+      <article class="stat reveal"><span class="stat__k">03</span><h3>Personality</h3><p>Communication style, humour, warmth — how they would respond.</p></article>
+      <article class="stat reveal"><span class="stat__k">04</span><h3>Memory</h3><p>Personal history, stories and knowledge, shared by the people who knew them.</p></article>
+    </div>
+    <p class="intro__why reveal">Our first focus is helping families stay connected with parents, siblings, partners and friends they deeply miss — built with care, consent and honesty at every step.</p>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section how" id="how">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">How the technology works</p>
+      <h2 class="h2 reveal">From authorised memories<br><span class="muted">to a living likeness.</span></h2>
+    </div>
+    <div class="pipeline">
+      <div class="pipeline__inputs reveal">
+        <p class="mono-label">Inputs</p>
+        <ul class="chips">
+          <li><iconify-icon icon="ph:image-square-light"></iconify-icon>Photographs</li>
+          <li><iconify-icon icon="ph:video-camera-light"></iconify-icon>Videos</li>
+          <li><iconify-icon icon="ph:microphone-light"></iconify-icon>Voice recordings</li>
+          <li><iconify-icon icon="ph:chats-circle-light"></iconify-icon>Conversations</li>
+          <li><iconify-icon icon="ph:book-open-text-light"></iconify-icon>Memories &amp; stories</li>
+          <li><iconify-icon icon="ph:fingerprint-light"></iconify-icon>Personality &amp; interests</li>
+        </ul>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="step__n">01</span><div><h3>Consent &amp; upload</h3><p>Material is uploaded only by people authorised to share it, with clear consent records attached.</p></div></li>
+        <li class="step reveal"><span class="step__n">02</span><div><h3>Visual reconstruction</h3><p>Photographs and video are used to reconstruct a 3D face with realistic texture and expression.</p></div></li>
+        <li class="step reveal"><span class="step__n">03</span><div><h3>Voice modelling</h3><p>Recordings inform a personalised voice — accent, tone and speaking rhythm.</p></div></li>
+        <li class="step reveal"><span class="step__n">04</span><div><h3>Personality &amp; memory</h3><p>Stories and conversations build a memory layer and communication style the twin can draw on.</p></div></li>
+        <li class="step reveal"><span class="step__n">05</span><div><h3>Interactive twin</h3><p>Everything comes together in real-time conversation, lip-sync and natural movement.</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STAGES ============ -->
+<section class="section stages" id="stages">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">Product development</p>
+      <h2 class="h2 reveal">Built in stages.<br><span class="muted">Honest about each one.</span></h2>
+      <p class="section__sub reveal">INFINYQ is in its early planning and development phase. Each stage below is labelled with where it really stands today.</p>
+    </div>
+    <div class="stage-grid">
+      <article class="stage reveal">
+        <div class="stage__top"><span class="stage__n">Stage 1</span><span class="status status--active">In development</span></div>
+        <h3>Visual reconstruction</h3>
+        <p>A realistic 3D digital human, demonstrated through the transformation from holographic structure to human face.</p>
+        <ul><li>3D face reconstruction</li><li>Holographic-to-human transition</li><li>Concept visualisation complete</li></ul>
+      </article>
+      <article class="stage reveal">
+        <div class="stage__top"><span class="stage__n">Stage 2</span><span class="status">Research</span></div>
+        <h3>Identity &amp; personality</h3>
+        <p>AI that processes authorised media and memories to recreate voice, communication style and personal history.</p>
+        <ul><li>Voice modelling</li><li>Memory &amp; knowledge layer</li><li>Personality profile</li></ul>
+      </article>
+      <article class="stage reveal">
+        <div class="stage__top"><span class="stage__n">Stage 3</span><span class="status">Planned</span></div>
+        <h3>Interactive twin</h3>
+        <p>Real-time conversation with personalised voice, facial expression, lip-sync and natural movement.</p>
+        <ul><li>Real-time dialogue</li><li>Lip synchronisation</li><li>Interactive environments</li></ul>
+      </article>
+      <article class="stage reveal">
+        <div class="stage__top"><span class="stage__n">Stage 4</span><span class="status">Planned</span></div>
+        <h3>Customer software</h3>
+        <p>An automated platform where customers create, configure and talk with a twin — no developer required.</p>
+        <ul><li>Account &amp; secure upload</li><li>Automated generation</li><li>Personalisation tools</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMOS ============ -->
+<section class="section demos" id="demos">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">Demonstrations</p>
+      <h2 class="h2 reveal">See the vision.</h2>
+      <p class="section__sub reveal">Concept demonstrations are marked clearly. We’ll only label something “prototype” once it really runs.</p>
+    </div>
+    <div class="demo-grid">
+      <article class="demo demo--feature reveal">
+        <div class="demo__media">
+          <video src="assets/hologram-to-human.mp4" poster="assets/demo-poster.jpg" muted loop playsinline preload="none" controls></video>
+          <span class="badge">Concept</span>
+        </div>
+        <div class="demo__body"><span class="mono-label">Demo 01</span><h3>Hologram to human</h3><p>The visual transformation at the heart of Stage 1.</p></div>
+      </article>
+      <article class="demo reveal">
+        <div class="demo__media demo__media--soon"><iconify-icon icon="ph:stack-light"></iconify-icon><span class="badge badge--muted">Coming soon</span></div>
+        <div class="demo__body"><span class="mono-label">Demo 02</span><h3>How a twin is made</h3><p>How photographs, voice and memories each contribute.</p></div>
+      </article>
+      <article class="demo reveal">
+        <div class="demo__media demo__media--soon"><iconify-icon icon="ph:chat-teardrop-dots-light"></iconify-icon><span class="badge badge--muted">Coming soon</span></div>
+        <div class="demo__body"><span class="mono-label">Demo 03</span><h3>The conversation</h3><p>The intended interactive Digital Human Twin experience.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TECHNOLOGY ============ -->
+<section class="section tech" id="technology">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">Technology &amp; features</p>
+      <h2 class="h2 reveal">What a twin<br><span class="muted">will be able to do.</span></h2>
+    </div>
+    <div class="feature-grid">
+      <div class="feature reveal"><iconify-icon icon="ph:cube-focus-light"></iconify-icon><h3>3D face reconstruction</h3><p>Realistic geometry and texture from everyday photographs and video.</p></div>
+      <div class="feature reveal"><iconify-icon icon="ph:waveform-light"></iconify-icon><h3>Personalised voice</h3><p>Voice output shaped by real recordings — accent, tone and cadence.</p></div>
+      <div class="feature reveal"><iconify-icon icon="ph:smiley-light"></iconify-icon><h3>Expression &amp; lip-sync</h3><p>Facial expressions and mouth movement synchronised with speech.</p></div>
+      <div class="feature reveal"><iconify-icon icon="ph:brain-light"></iconify-icon><h3>Memory-informed dialogue</h3><p>Conversations grounded in the stories and history families provide.</p></div>
+      <div class="feature reveal"><iconify-icon icon="ph:person-simple-walk-light"></iconify-icon><h3>Natural movement</h3><p>Head and body motion that reflects characteristic mannerisms.</p></div>
+      <div class="feature reveal"><iconify-icon icon="ph:planet-light"></iconify-icon><h3>Interactive spaces</h3><p>Meet a twin inside calm, personalised digital environments.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOFTWARE DEVELOPMENT ============ -->
+<section class="section build" id="software">
+  <div class="container build__grid">
+    <div>
+      <p class="tag">Software development</p>
+      <h2 class="h2 reveal">Our own technology,<br><span class="muted">built in the UK.</span></h2>
+      <p class="section__sub reveal">We’re researching existing approaches, identifying real technical limits, and building our own pipeline — validated through prototypes before anything is offered to customers.</p>
+    </div>
+    <ol class="timeline">
+      <li class="reveal is-done"><span class="mono-label">Now</span><h3>Research &amp; concept</h3><p>Market and technology research, visual concept, brand and website.</p></li>
+      <li class="reveal is-current"><span class="mono-label">Next</span><h3>Stage 1 prototype</h3><p>Working 3D reconstruction from a set of authorised photographs.</p></li>
+      <li class="reveal"><span class="mono-label">Later</span><h3>Voice &amp; memory prototype</h3><p>Personalised voice and a memory layer for grounded conversation.</p></li>
+      <li class="reveal"><span class="mono-label">Future</span><h3>Private beta</h3><p>A small, carefully supported group of families trying the full experience.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ RESPONSIBLE AI ============ -->
+<section class="section responsible" id="responsible">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">Privacy &amp; responsible AI</p>
+      <h2 class="h2 reveal">Built on consent.<br><span class="muted">Designed with care.</span></h2>
+      <p class="section__sub reveal">Recreating a person is a profound responsibility. These principles shape every decision we make.</p>
+    </div>
+    <div class="principles">
+      <div class="principle reveal"><span class="mono-label">01</span><h3>Authorised data only</h3><p>Twins are created only from material the uploader has the right to share — with documented consent from the person or, where they’ve passed away, from appropriate next of kin.</p></div>
+      <div class="principle reveal"><span class="mono-label">02</span><h3>Always disclosed as AI</h3><p>A twin is a representation, never presented as the real person. Every interaction is clearly identified as AI-generated.</p></div>
+      <div class="principle reveal"><span class="mono-label">03</span><h3>Your data, your control</h3><p>Designed around UK GDPR: secure storage, no sale of personal data, and the right to export or permanently delete a twin and its source material.</p></div>
+      <div class="principle reveal"><span class="mono-label">04</span><h3>No impersonation</h3><p>Twins can’t be used to deceive, defraud or impersonate. Public figures and non-consenting individuals are out of bounds.</p></div>
+      <div class="principle reveal"><span class="mono-label">05</span><h3>Grief-aware design</h3><p>We’re building with wellbeing in mind — gentle pacing, user controls and signposting to support, rather than maximising screen time.</p></div>
+      <div class="principle reveal"><span class="mono-label">06</span><h3>Honest about limits</h3><p>A twin reflects what it’s been given. We’re open about what the technology can and can’t do today.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section__head">
+      <p class="tag">Pricing</p>
+      <h2 class="h2 reveal">Pricing is on its way.</h2>
+      <p class="section__sub reveal">We’ll publish plans once the platform is ready. Register interest to be the first to hear.</p>
+    </div>
+    <div class="price-grid">
+      <div class="price reveal"><span class="mono-label">Plan</span><h3>Memory</h3><p>A personalised twin from photographs and stories.</p><div class="price__tba">To be announced</div></div>
+      <div class="price price--hl reveal"><span class="mono-label">Plan</span><h3>Presence</h3><p>Adds personalised voice and real-time conversation.</p><div class="price__tba">To be announced</div></div>
+      <div class="price reveal"><span class="mono-label">Plan</span><h3>Legacy</h3><p>Full twin with family sharing and long-term preservation.</p><div class="price__tba">To be announced</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DOWNLOAD ============ -->
+<section class="section download" id="download">
+  <div class="container download__box reveal">
+    <div>
+      <p class="tag">Software</p>
+      <h2 class="h2">INFINYQ for desktop &amp; web.</h2>
+      <p class="section__sub">Not yet available. Downloads will appear here when the platform launches.</p>
+    </div>
+    <div class="download__btns">
+      <button class="btn btn--ghost" disabled><iconify-icon icon="ph:windows-logo-light"></iconify-icon>Windows · soon</button>
+      <button class="btn btn--ghost" disabled><iconify-icon icon="ph:apple-logo-light"></iconify-icon>macOS · soon</button>
+      <button class="btn btn--ghost" disabled><iconify-icon icon="ph:globe-light"></iconify-icon>Web app · soon</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section contact" id="contact">
+  <div class="container contact__grid">
+    <div>
+      <p class="tag">Contact</p>
+      <h2 class="h2 reveal">Talk to us.</h2>
+      <p class="section__sub reveal">Questions, partnerships, press, or you’d like early access — we read every message.</p>
+      <p class="contact__mail reveal"><iconify-icon icon="ph:envelope-simple-light"></iconify-icon><a href="mailto:hello@infinyq.co.uk">hello@infinyq.co.uk</a></p>
+    </div>
+    <form class="form reveal" id="contactForm">
+      <div class="form__row">
+        <label>Name<input name="name" required autocomplete="name"></label>
+        <label>Email<input name="email" type="email" required autocomplete="email"></label>
+      </div>
+      <label>I’m interested in
+        <select name="topic">
+          <option>Early access for my family</option>
+          <option>Partnership or investment</option>
+          <option>Press &amp; media</option>
+          <option>Something else</option>
+        </select>
+      </label>
+      <label>Message<textarea name="message" rows="5" required></textarea></label>
+      <button class="btn btn--primary" type="submit">Send message</button>
+      <p class="form__note" id="formNote">This opens your email app with the message ready to send.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="brand"><img src="assets/logo-mark.svg" alt="" class="brand__mark"><span class="brand__word">INFINYQ</span></a>
+    <p class="footer__line">AI-powered Digital Human Twins · United Kingdom</p>
+    <p class="footer__small">© <span id="year"></span> INFINYQ. Concept visuals are illustrative and do not depict a real customer.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/iconify-icon@2.1.0/dist/iconify-icon.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
